@@ -1,0 +1,11 @@
+1. Tư duy về các file của dự án:
+    server.js: chỉ để khởi động server
+    app.js: khai báo các thành phần của dự án (db, middleware, etc)
+    .env: khai báo môi trường cho dự án
+2. Tư duy về thư mục của dự án:
+    config:
+    controller: các bộ điều khiển của dự án
+    model: các model của db
+    services: các dịch vụ sẽ sử dụng
+    ultils: các chức năng hay sử dụng trong dự án
+    dbs: kết nối db
