@@ -1,8 +1,11 @@
 "use strict";
 const mongoose = require("mongoose");
-
-const connectString = `mongodb://localhost:27017/shopDev`;
-
+const { countConnections } = require("../helper/checkConnect");
+const {
+  db: { host, name, port },
+} = require("../config/config.mongodb");
+const connectString = `mongodb://${host}:${port}/${name}`;
+console.log(`Connect: ${connectString}`);
 class Database {
   constructor() {
     this.connect();
@@ -15,7 +18,7 @@ class Database {
 
     mongoose
       .connect(connectString)
-      .then((_) => console.log("Connect DB success"))
+      .then((_) => console.log("Connect DB success", countConnections()))
       .catch((err) => console.log("Error Connect!"));
   }
   static getInstance() {
